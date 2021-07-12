@@ -18,11 +18,12 @@ import torchvision.utils as vutils
 import numpy as np
 import torchvision.models as tvmodels
 from datetime import datetime
+from pathlib import Path
 
 from models.GlobalClassifiers import GlobalPreModel_LR, GlobalPreModel_NN
 from models.AttackModels import Generator
-from Trainers import GlobalClassifierTrainer, GeneratorTrainer
-from VFLDatasets import ExperimentDataset, FakeDataset
+from utils.Trainers import GlobalClassifierTrainer, GeneratorTrainer
+from utils.VFLDatasets import ExperimentDataset, FakeDataset
 
 def asMinutes(s):
     m = math.floor(s / 60)
@@ -41,9 +42,12 @@ def timeSince(since, percent):
 def currentDir():
     return os.path.dirname(os.path.realpath(__file__))
     
+def parentDir(mydir):
+    return str(Path(mydir).parent.absolute())
+    
 def initlogging(logfile):
     # debug, info, warning, error, critical
-    # set up logging to file - see previous section for more details
+    # set up logging to file
     logging.shutdown()
     
     logger = logging.getLogger()
@@ -127,7 +131,7 @@ def readConfigFile(configfile):
     parameters['testpart'] = p_dataset.getfloat('TestPortion')
     parameters['predictpart'] = p_dataset.getfloat('PredictPortion')
     
-    parameters['datasetpath'] = currentDir() + os.sep + "datasets" + os.sep + p_default['DataFile']
+    parameters['datasetpath'] = parentDir(currentDir()) + os.sep + "datasets" + os.sep + p_default['DataFile']
 
     # add time stamp to the name of log file
     logfile = p_default['LogFile']
@@ -213,8 +217,14 @@ def gridSearch(parameters, search_time = 4):
     logging.critical("Choose variance lambda = %s", final_lambda)
     return final_lambda
     
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+### This attack method is as follows:
+#   1. Split the dataset into three parts for training, testing, and prediction
+#   2. Train a classification model (logistic regression, random forest or neural network) using train and test data
+#   3. Train a generator based on the trained classifier in Step 2 and the prediction dataset
+#   4. compute overall mse
+    
 if __name__=='__main__':  
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     # read parameters from config file
     configfile = 'config.ini'
     parameters = readConfigFile(configfile)

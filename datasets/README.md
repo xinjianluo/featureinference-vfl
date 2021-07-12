@@ -1,7 +1,7 @@
 # Datasets
-This table describes the statistics of the used dataset.
+This table describes the statistics of the used datasets:
 
-|Dataset   |    #Samples  |       #Classes |       #Features|
+|Dataset   |    # Samples  |       # Classes |       # Features|
 |-----------|--------|-------|--------|
 bank        |  30488     |       2        |       20
 credit     |   30000     |       2     |          23

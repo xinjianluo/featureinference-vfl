@@ -94,7 +94,7 @@ class GlobalClassifierTrainer():
         logging.critical("After training Random Forest, train accur is {}, test accur is {}.".format(train, test))
         
     def convertRF(self):        
-        # for computing cbr
+        # for computing cbr, convert the trained decision tree model to list
         num_trees = self.modelRF.rf.n_estimators
         print('num_trees: ', num_trees)
         trees = self.modelRF.rf.estimators_
