@@ -28,7 +28,7 @@ To run it, you need to install `numpy`, `pytorch` and `sklearn` first.
 Before running these attacks, you can configure the parameters of generator, datasets and global classifier in `config.ini`. The key names in this configure file are self-explanatory.
 
   
-### Equation Solving Attack:
+### Equation Solving Attack
 ESA is applicable to the LR models. 
 To initiate an ESA attack, run the following script:
 ```
@@ -36,7 +36,7 @@ cd ESA/
 python main-esa.py
 ```
 
-### Path Restriction Attack:
+### Path Restriction Attack
 PRA is applicable to the DT models. 
 To initiate a PRA attack, run the following script:
 ```
@@ -44,7 +44,7 @@ cd PRA/
 python main-pra.py
 ```
 
-### Generative Regression Network Attack:
+### Generative Regression Network Attack
 GRNA is applicable to the LR, RF and NN models.
 To initiate a GRNA attack, run the following script:
 ```
@@ -52,5 +52,5 @@ cd GRNA/
 python main-grna.py
 ```
 
-## Reference:
+## Reference
 [1] [**Feature Inference Attack on Model Predictions in Vertical Federated Learning**](https://arxiv.org/abs/2010.10152), *Xinjian Luo, Yuncheng Wu, Xiaokui Xiao, Beng Chin Ooi*, ICDE 2021.
