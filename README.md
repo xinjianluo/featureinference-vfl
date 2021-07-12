@@ -1,7 +1,7 @@
 # Feature Inference Attack on Model Predictions in Vertical Federated Learning
 
 ## Overview
-Feature Inference Attack on Model Predictions in Vertical Federated Learning[1] investigates the potential privacy leakages in the model prediction stage of vertical FL. This work consists of three attack methods: `Equation Solving Attack` (ESA) on the logistic regression (LR) models, `Path Restriction Attack` (PRA) on the decision tree (DT) models, and `Generative Regression Network Attack` (GRNA) on the Logistic Regression, Random Forest (RF) and Neural Network (NN) models.
+Feature Inference Attack on Model Predictions in Vertical Federated Learning [1] investigates the potential privacy leakages in the model prediction stage of vertical FL. This work consists of three attack methods: `Equation Solving Attack` (ESA) on the logistic regression (LR) models, `Path Restriction Attack` (PRA) on the decision tree (DT) models, and `Generative Regression Network Attack` (GRNA) on the Logistic Regression, Random Forest (RF) and Neural Network (NN) models.
 
 
 ## Citation
